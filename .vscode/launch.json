@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "args": ["C:\\Users\\James\\Downloads\\playlists\\essence_of_calculus","https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr"],
+            "args": ["C:\\Users\\James\\Downloads\\playlists\\statistics","https://www.youtube.com/watch?v=MXaJ7sa7q-8&list=PL0KQuRyPJoe6KjlUM6iNYgt8d0DwI-IGR"],
             "program": "${workspaceFolder}\\index.js"
         }
     ]

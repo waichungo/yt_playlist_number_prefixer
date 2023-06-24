@@ -42,4 +42,19 @@ if (args.length > 3) {
             }
         });
     }
+} else if (args.length == 3) {
+    var dir = args[2]
+    if (fs.existsSync(dir)) {
+        let files = fs.readdirSync(dir).map(e => `${dir}/${e}`);
+        for (const file of files) {
+            let dir = path.dirname(file)
+            let fBase = path.basename(file)
+            if (/^\(\d+\)/gi.test(fBase)) {
+                let newName = `${dir}/${(fBase.replace(/^\(\d+\)/gi, "").trim())}`
+                fs.renameSync(file, newName);
+            }
+
+
+        }
+    }
 }
