@@ -25,16 +25,18 @@ if (args.length > 3) {
             let list = JSON.parse(playlist)
             let maxZeroes = `${files.length}`.length
             let counter = 0;
-            for (const video of list.entries) {
+            let ids = list.entries.map(e => e.id)
+            for (const id of ids) {
                 counter++
-                let id = video.id;
                 for (const file of files) {
                     if (file.includes(id)) {
                         let dir = path.dirname(file)
                         let fBase = path.basename(file)
                         if (!/^\(\d+\)/gi.test(fBase)) {
                             let newName = `${dir}/(${counter.toString().padStart(maxZeroes, "0")}) ${fBase}`
-                            fs.renameSync(file, newName);
+                            try {
+                                fs.renameSync(file, newName);
+                            } catch (e) { }
                         }
                         break;
                     }
@@ -51,7 +53,9 @@ if (args.length > 3) {
             let fBase = path.basename(file)
             if (/^\(\d+\)/gi.test(fBase)) {
                 let newName = `${dir}/${(fBase.replace(/^\(\d+\)/gi, "").trim())}`
-                fs.renameSync(file, newName);
+                try {
+                    fs.renameSync(file, newName);
+                } catch (e) { }
             }
         }
     }
