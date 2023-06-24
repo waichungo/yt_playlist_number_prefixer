@@ -53,8 +53,6 @@ if (args.length > 3) {
                 let newName = `${dir}/${(fBase.replace(/^\(\d+\)/gi, "").trim())}`
                 fs.renameSync(file, newName);
             }
-
-
         }
     }
 }
